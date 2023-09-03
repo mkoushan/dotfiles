@@ -1,0 +1,26 @@
+#!/bin/bash
+
+[[ -z $(pgrep checkvolume) ]] && checkvolume &
+
+# requieres pamixer
+
+case $1 in
+--up)
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 >/dev/null
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+ >/dev/null
+  ;;
+--down)
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 >/dev/null
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%- >/dev/null
+  ;;
+--toggle-audio)
+  if [[ -n $(pidof strawberry) ]]; then
+    strawberry -u
+  fi
+  playerctl pause
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+  ;;
+--toggle-mic)
+  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+  ;;
+esac

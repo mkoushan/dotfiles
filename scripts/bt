@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+function changeBrightness()
+{
+    value="$(expr $1 \* 96000 / 100)"
+    sudo sh -c "echo $value > /sys/class/backlight/intel_backlight/brightness"
+}
+
+function getBrightness()
+{
+    value="$(cat /sys/class/backlight/intel_backlight/brightness)"
+    echo "$(expr $value \* 100 / 96000)"
+}
+
+if [[ $1 =~ ^[1-9][0-9]?$|^100$ ]]; then
+    changeBrightness $1
+else
+    getBrightness
+fi
