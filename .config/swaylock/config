@@ -1,5 +1,5 @@
 # -*- mode:conf-unix -*-
-image=lockpaper.png
+image=~/.config/swaylock/lockpaper.png
 clock
 indicator-radius=100
 indicator-thickness=7
