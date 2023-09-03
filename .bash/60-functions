@@ -1,0 +1,172 @@
+#ls does lsd
+function ls
+{
+    lsd --color=auto --group-dirs first $*
+}
+
+#lsl for lsd -lah
+function lsl
+{
+    ls -lah $*
+}
+
+# lsd for Directories.
+function lsdd
+{
+    ls -1F $* | grep '/$'
+}
+
+# ls for files - or at least non-directories
+function lsf
+{
+    ls -l $* | grep -E -v '^(d|total)' | awk '{print $NF}'
+}
+
+#
+#  ssh + scp without storing or prompting for keys.
+#
+function sshtmp
+{
+    ssh -o "ConnectTimeout 3" \
+        -o "StrictHostKeyChecking no" \
+        -o "UserKnownHostsFile /dev/null" \
+        "$@"
+}
+function scptmp
+{
+    exec scp -o "ConnectTimeout 3" \
+        -o "StrictHostKeyChecking no" \
+        -o "UserKnownHostsFile /dev/null" \
+        "$@"
+}
+
+#
+#  If we have completion function for ssh then use it for those too.
+#
+if [ "$(type -t _ssh)x" = "functionx" ]; then
+    complete -F _ssh sshtmp
+    complete -F _ssh scptmp
+fi
+
+
+
+#
+#  Extract named archive(s).
+#
+x ()
+{
+    # If we have atool installed then use it.
+    if ( which atool 2>/dev/null >/dev/null ) ; then
+        atool --extract "$@"
+        return
+    fi
+
+    for archive in "$@"; do
+        case "$archive" in
+            *.tar* | *.t?z)
+                case $archive in
+                    *.gz | *tgz | *.Z)
+                        TARFLAGS="--use-compress-prog gzip"
+                    ;;
+                    *.bz | *.bz2 | *tbz)
+                        TARFLAGS="--use-compress-prog bzip2"
+                    ;;
+                    *)
+                        TARFLAGS=""
+                    ;;
+                esac;
+                tar xf "$archive" ${TARFLAGS}
+            ;;
+            *.zip | *.ZIP)
+                unzip -q "$archive"
+            ;;
+            *.gz | *.GZ)
+                gunzip "$archive"
+            ;;
+            *.deb)
+                dpkg-deb -x "$archive" .
+            ;;
+            *.rar)
+                unrar x "$archive"
+            ;;
+            *.cpio)
+                cpio --extract --make-directories --file="$archive"
+            ;;
+            *.cpio.gz)
+                gzip -dc "$archive" | cpio --extract --make-directories
+            ;;
+            *)
+                echo "Unknown archive format" 1>&2
+            ;;
+        esac;
+    done
+}
+
+
+#
+#  Create a screen session with the name of the current host, or attach to
+# it here and now if it already exists.
+#
+screeny ()
+{
+    screen -D -R -S `hostname`
+}
+
+
+#
+# Play media found dynamically.  Correctly copes with spaces in files.
+#
+function play
+{
+   player=$*
+   if [  -z "$player" ]; then
+      player="xine --loop=shuffle+"
+   fi
+
+   find . \( -iname '*.avi' -o -iname '*.mkv' -o -iname '*.m4v' -o -iname '*.wmv' -o -iname '*.flv' -o -iname '*.mp4' -o -iname '*.mov' -o -iname '*.mpg' \) -exec $player "{}" +
+
+}
+
+# Open a new firefox instance, with a temporary profile
+function firefox_temp() {
+   dir=$(mktemp -d)
+   echo "Profile directory: ${dir}"
+   firefox --new-instance --profile ${dir}
+   echo "Cleaning up .."
+   rm -rf ${dir}
+
+}
+
+# Generate a four-word pass-phrase
+function passphrase() {
+
+    if [ ! -e /usr/share/dict/words ]; then
+        echo "/usr/share/dict/words is missing"
+        return
+    fi
+
+    # loop forever
+    while true; do
+
+        # Generate the random passphrase.
+        #
+        # Note: Using `shuf -n4 $file` is way faster
+        # than `sort --random-sort $file`.
+        #
+        out=$(shuf -n4 /usr/share/dict/words | tr '\n' ' ')
+
+        #
+        # If the output DOES NOT contain `-` then we show
+        # it, and return.
+        #
+        # Otherwise we rely upon the loop to try again :)
+        #
+        if ( ! echo ${out} | grep -E -- "[-']" 2>/dev/null >/dev/null) ; then
+
+            # convert to lower-case.
+            echo "${out,,}"
+            return
+        fi
+    done
+
+}

@@ -1,0 +1,85 @@
+
+#
+#  Add directory to PATH if it exists
+#
+function add_to_path
+{
+   if [ -d "$1" ]; then
+      export PATH=$1:$PATH
+   fi
+}
+
+
+#
+# Empty the PATH so we have a known-starting point.
+#
+export PATH=
+
+#
+# Add on the expected/standard directories.
+#
+add_to_path /bin
+add_to_path /usr/bin
+add_to_path /sbin
+add_to_path /usr/sbin
+add_to_path /usr/local/bin
+add_to_path /usr/local/sbin
+
+#
+# Some optional directories might exist, and if so they will be added.
+#
+add_to_path /opt/node/bin
+add_to_path /opt/packer
+add_to_path /opt/pass
+add_to_path /opt/sysadmin-util
+add_to_path /opt/vpn
+add_to_path /usr/games
+add_to_path /usr/lib/ccache
+add_to_path /var/lib/gems/1.8/bin
+add_to_path /var/lib/gems/1.9/bin
+
+#
+# We allow a per-user, and a per-user + per-host setup.
+#
+add_to_path ~/.local/bin
+add_to_path ~/bin
+add_to_path ~/bin-$(hostname --short)
+add_to_path ~/scripts
+#
+# Now we have some extra setup for things that might be present.
+#
+
+
+#
+# Golang
+#
+if [ -d /opt/go ]; then
+
+    # Add the path
+    add_to_path /opt/go/bin
+    add_to_path $HOME/go/bin
+
+    # go-specific environmental variable setup.
+    export GO111MODULE=on
+    export GOPATH=$HOME/go
+    export GOROOT=/opt/go
+
+fi
+
+
+#
+# Ruby Gems
+#
+if [ -d ~/gems/bin ]; then
+    export GEM_HOME=~/gems/
+    add_to_path $HOME/gems/bin
+fi
+
+
+
+
+
+#
+#  Remove any duplicated entries.
+#
+export PATH=$(echo "$PATH" | awk -F: '{for (i=1;i<=NF;i++) { if ( !x[$i]++ ) printf("%s:",$i); }}')

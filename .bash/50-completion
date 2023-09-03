@@ -1,0 +1,53 @@
+# No completion?  Then ignore this file
+[ -e /etc/bash_completion ] || return
+
+
+# If we can load git-completion things then apply that to the
+# `.DOTFILES` alias too.
+if [ -e  /usr/share/bash-completion/completions/gitk ]; then
+    .  /usr/share/bash-completion/completions/gitk
+    if ( declare -f -F __git_complete >/dev/null ) ; then
+	__git_complete .DOTFILES __git_main
+    fi
+fi
+
+
+#
+# If we have a local install of `pass` then enable the completion
+#
+if [ -e /opt/pass/completion/pass.bash-completion ]; then
+    . /opt/pass/completion/pass.bash-completion
+fi
+
+
+
+#
+# If we have a local install of `vpn` then enable the completion
+#
+if [ -e /opt/vpn/bash.completion ]; then
+    . /opt/vpn/bash.completion
+fi
+
+#
+# sysbox is a collection of scripting/sysadmin utilities:
+#
+#    https://github.com/skx/sysbox
+#
+# rss2email is a simple utility for polling RSS feeds and generating emails:
+#
+#    https://github.com/skx/rss2email
+#
+# evalfilter is a bytecode-based embeddable scripting language, a toy
+# project I enjoy working with:
+#
+#    https://github.com/skx/evalfilter
+#
+# Each of these tools have support for completion, via a common cli-handler.
+#
+for cmd in aws-utils evalfilter rss2email sysbox ; do
+
+    # If installed, add the completion
+    if ( which ${cmd} >/dev/null 2>/dev/null ) ; then
+        source <(${cmd} bash-completion)
+    fi
+done
