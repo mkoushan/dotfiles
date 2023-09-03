@@ -35,7 +35,8 @@ To do
 In .bash configurations I made DOT alias for managing dotfiles.
 
 ## Screenshots
-![1](Screenshots/1.png)
-![2](Screenshots/2.png)
+![1](Pictures/Screenshots/1.png)
+###
+![2](Pictures/Screenshots/2.png)
 ## License
 [CC-BY-SA-4.0](https://spdx.org/licenses/CC-BY-SA-4.0.html)
