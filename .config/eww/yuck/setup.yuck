@@ -1,0 +1,66 @@
+(defwindow wallpaper
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry :height "100%" :width "100%" :anchor "center")
+  (wallpaper)
+)
+
+(defwindow bar
+  :monitor 0
+  :exclusive false
+  :stacking "fg"
+  :geometry (geometry :height "100%" :anchor "center left")
+  (bar)
+)
+
+(defwindow launcher
+  :monitor 0
+  :focusable true
+  :stacking "overlay"
+  :geometry (geometry :height "60%" :width "30%" :anchor "center")
+  (launcher)
+)
+
+(defwindow volume
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :width "10%" :anchor "top right")
+  (volume-popup)
+)
+
+(defwindow menu
+  :monitor 0 
+  :geometry (geometry :x "4%" :width "25%" :anchor "center left")
+  (menu)
+)
+
+(defwindow notifications
+  :monitor 0
+  :geometry (geometry :x "4%" :width "25%" :anchor "center left")
+  (notifications)
+)
+
+(defwindow notifications_popup
+  :monitor 0
+  :stacking "overlay"
+  :namespace "eww_notifications"
+  :focusable false
+  :geometry (geometry :y "0%" :width "0%" :height "0%" :anchor "top center")
+  (notifications_popup)
+)
+
+(defwindow powermenu
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :anchor "right center")
+  (powermenu)
+)
+
+(defwindow dock
+  :monitor 0
+  :stacking "fg"
+  :namespace "eww_dock"
+  :focusable false
+  :geometry (geometry :width  "1%" :height "1%" :anchor "bottom center")
+  (dock)
+)

@@ -1,0 +1,23 @@
+(defvar     bell_rev        false)
+(defvar     music_rev       false)
+(defvar     volume_rev      false)
+(defvar     brightness_rev  false)
+(defvar     updates_rev     false)
+(defvar     dock_hovered    false)
+(defvar     dock_rev        true)
+(defvar     apps            "{}")
+(defvar     notifications   "{}")
+(defvar     timezone        "Asia/Tehran")
+
+(deflisten  brightness      `scripts/bt`)
+(deflisten  volumeval       `scripts/volume loop`)
+(deflisten  hyprland        `scripts/hyprland.py`)
+(deflisten  details         `scripts/details`)
+(deflisten  network         `scripts/network`)
+(deflisten  weather         `scripts/weather.py`)
+
+(defpoll    date            :interval "1h"   :initial `{"day": 1, "month": 1, "year": 1}` `date +'{"day": "%d", "month": "%m", "year": "%Y"}'`)
+
+(include    "yuck/widgets.yuck")
+(include    "yuck/windows.yuck")
+(include    "yuck/setup.yuck")

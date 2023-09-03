@@ -1,0 +1,144 @@
+(defwidget bell []
+  (eventbox 
+    :onhover "eww update bell_rev=true" 
+    :onhoverlost "eww update bell_rev=false"
+    :halign "center"
+    (box
+      :class "bell"
+      :space-evenly false
+      :orientation "v"
+      (revealer 
+        :transition "slideup" 
+        :reveal bell_rev 
+        (label 
+          :class "updates total" 
+          :text {notifications.count}
+        )
+      )
+      (eventbox
+        :cursor "pointer"
+        :halign "center"
+        (overlay 
+          (button
+            :class "icon ${notifications.count > 0 ? "" : "empty"}"
+            :onclick "actions --notifications" ""
+          )
+          (label
+            :class "bell indicator"
+            :visible {notifications.count > 0 ? true : false}
+            :valign "start" :halign "end" 
+            :text ""
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget clock []
+  (box 
+    :class "clock"
+    :orientation "v"
+    :space-evenly false
+    :spacing 5
+    :halign "center"
+    (label 
+      :class "clock hour" 
+      :text {formattime(EWW_TIME, "%H", timezone)}
+    )
+    (box :class "timebox" :spacing 4
+      (box :class "timebox magenta" "")
+      (box :class "timebox green" "")
+      (box :class "timebox yellow" "")
+    )
+    (label 
+      :class "clock minute" 
+      :text {formattime(EWW_TIME, "%M", timezone)}
+    )
+  )
+)
+
+(defwidget launcher_icon  []
+  (eventbox
+    :cursor "pointer"
+    :halign "center"
+    (button 
+      :class "launcher_icon" 
+      :valign "start"
+      :onclick "actions --launcher" 
+      ""
+    )
+  )
+)
+
+(defwidget network []
+  (label
+    :class "network ${network == "down" ? "down" : "up"}"
+    :text {network == "down" ? "" : ""}
+    :tooltip "${round(EWW_NET.wlo1.NET_DOWN / 1000000, 2)}MB"
+  )
+)
+
+(defwidget volume []
+  (eventbox 
+    :onhover "eww update volume_rev=true" 
+    :onhoverlost "eww update volume_rev=false"
+    (box
+      :class "volume"
+      :space-evenly false
+      :orientation "v"
+      (revealer 
+        :class "volume-bar"
+        :transition "slideup" 
+        :reveal volume_rev 
+        (eventbox
+          :cursor "pointer"
+          :halign "center"
+          (scale  
+            :orientation "v"
+            :tooltip {volumeval == "muted" ? "Muted" : "${volumeval}%"}
+            :value {volumeval == "muted" ? "0" : volumeval} 
+            :min 0 
+            :max 101 
+            :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+            :flipped true
+          )
+        )
+      )
+      (eventbox
+        :cursor "pointer"
+        :onscroll "echo {} | sed -e 's/up/--up/g' -e 's/down/--down/g' | xargs volume"
+        (button
+          :class "volume ${volumeval == 0 || volumeval == "muted" ? "muted" : ""}" 
+          :tooltip {volumeval == "muted" ? "Muted" : "${volumeval}%" } 
+          :onclick "volume --toggle-audio"
+          {volumeval == 0 || volumeval == "muted" ? "" : 
+          volumeval < 30 ? "" : 
+          volumeval < 75 ? "" : ""}
+        )
+      )
+    )
+  )
+)
+
+(defwidget workspaces []
+  (box 
+    :class "workspaces"
+    :orientation "v"
+    :width 40
+    :height 250
+    (for workspace in {hyprland.workspaces}
+      (eventbox
+        :cursor "pointer"
+        :onscroll "echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace"
+        :halign "center"
+        :valign "center"
+        :vexpand true
+        (button
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          :class "workspace ${workspace.id == hyprland.active ? "active" : workspace.windows > 0 ? "occupied" : "empty"}"
+        )
+      )
+    )
+  )
+)

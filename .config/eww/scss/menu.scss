@@ -1,0 +1,198 @@
+window>.menu {
+  margin: 1rem;
+  box-shadow: 0 0 5px 2px rgba(black, 0.5);
+  background-color: $bg;
+}
+
+.menu {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  background-color: transparent;
+  padding: .7rem 1rem 1rem;
+  border-radius: 1rem;
+
+  &.clock {
+    margin-bottom: -.7rem;
+
+    .time {
+      font-family: SF Mono;
+      font-weight: bolder;
+      font-size: 3rem;
+      color: $fg;
+    }
+
+    .timebox {
+      font-size: 0.5rem;
+
+      &.magenta {
+        color: $magenta;
+      }
+
+      &.green {
+        color: $green;
+      }
+
+      &.yellow {
+        color: $yellow;
+      }
+    }
+
+    .today {
+      font-size: 1.3rem;
+      color: $fg-alt;
+    }
+  }
+
+  .calendar {
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: $bg-alt;
+    border-radius: 1rem;
+    padding: 1rem 1rem 0 1rem;
+
+    calendar {
+      padding: .5rem;
+
+      &.button {
+        color: $fg-alt;
+
+        &:hover {
+          background-color: $black;
+          border-radius: 1rem;
+        }
+      }
+
+      &:selected {
+        color: $green;
+        text-shadow: 0 0 3px lighten($color: $bg-alt, $amount: 50%);
+        border-radius: 1rem;
+      }
+
+      &.header {
+        background-color: transparent;
+        border: none;
+      }
+
+      &.highlight {
+        color: $green;
+      }
+
+      &:indeterminate {
+        color: $gray;
+      }
+    }
+  }
+
+  .weather {
+    &.info {
+      background-color: $bg-alt;
+      border-radius: 1rem;
+      padding: 1rem;
+
+      .desc {
+        font-size: 1.2rem;
+        color: $fg-alt;
+      }
+    }
+
+    .temp {
+      font-size: 1.5rem;
+      font-weight: bolder;
+      color: $fg;
+    }
+
+    .city {
+      font-size: 1.2rem;
+      color: $fg;
+    }
+
+    &.icon {
+      background-color: $bg-alt;
+      border-radius: 1rem;
+      padding: 1rem;
+
+      .icon {
+        font-size: 2.2rem;
+        text-shadow: 0 0 0.2rem black;
+        min-width: 4rem;
+      }
+    }
+  }
+
+  .system {
+    .progress {
+      background-color: $bg-alt;
+      padding: 1rem;
+      border-radius: 1rem;
+
+      circular-progress {
+        background-color: $black;
+
+        &.ram {
+          color: $magenta;
+        }
+
+        &.cpu {
+          color: $yellow;
+          label { margin-left: 1px;}
+        }
+
+        &.temp {
+          color: $red;
+          label { margin-left: 1px;}
+        }
+
+        &.disk {
+          color: $green;
+        }
+      }
+    }
+
+    .icon {
+      font-size: 1.5rem;
+      padding: 1.5rem;
+    }
+
+  }
+
+  .separator {
+    background-color: $black;
+    min-width: 1rem;
+  }
+
+  .profile {
+
+    &.image {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      min-height: 4rem;
+      min-width: 4rem;
+      border-radius: 100%;
+      box-shadow: 0 0 2px 2px rgba(black, 0.3);
+    }
+
+    &.info {
+      .name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $fg;
+      }
+
+      .uptime {
+        font-size: 1rem;
+      }
+    }
+
+    .exit {
+      font-size: 1.5rem;
+      color: $blue;
+      background-color: $bg-alt;
+      padding: .8rem 1rem;
+      border-radius: 1rem;
+
+      &:hover {
+        background-color: lighten($color: $bg-alt, $amount: 2%);
+      }
+     }
+  }
+}

@@ -1,0 +1,39 @@
+#!/bin/bash
+function getVolume()
+{
+    output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tr -d [:alpha:] | tr -d [:blank:] | tr -d ".:")
+    for ((i=0; i < 2 && ${output:0:1} == "0" ; i++))
+    do
+        output="${output:1}"
+    done
+
+    if echo $output | grep -q "\[\]" > /dev/null; then
+        return 0
+    else
+        return $output
+    fi
+}
+
+function loop()
+{
+    getVolume
+    first=$?
+    echo $first
+    while [ true ]
+    do
+        getVolume
+        second=$?
+        if [[ $first != $second ]]; then
+            echo "$second"
+            first=$second
+        fi
+    done
+}
+
+if [[ $1 == 'loop' ]]; then
+    loop
+    echo $?
+else
+    getVolume
+    echo $?
+fi

@@ -1,0 +1,25 @@
+(defwidget volume-popup []
+  (box
+    :class "volume_pop"
+    :hexpand true
+    (overlay
+      (box
+        :class "scale"
+        (scale
+          :min 0 
+          :max 101
+          :value {volumeval}
+          :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+        )
+      )
+      (label
+        :halign "start"
+        :text {volumeval == 0 ? "" : 
+        volumeval < 30 ? "" : 
+        volumeval < 75 ? "" : ""} 
+        :style {volumeval == "muted" || volumeval == 0 ? "color: #dd6777;" : 
+        volumeval < 15 ? "color: #cacaca;" : "color: #191919;"}
+      )
+    )
+  )
+)

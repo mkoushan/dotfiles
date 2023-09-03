@@ -1,0 +1,6 @@
+(include "yuck/widgets/bar_widgets.yuck")
+(include "yuck/widgets/menu_widgets.yuck")
+(include "yuck/widgets/notifications.yuck")
+(include "yuck/widgets/notifications_popup.yuck")
+(include "yuck/widgets/launcher.yuck")
+(include "yuck/widgets/dock.yuck")

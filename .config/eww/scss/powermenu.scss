@@ -1,0 +1,38 @@
+window>.powermenu {
+  margin: 1rem;
+  box-shadow: 0 0 5px 2px rgba(black, 0.5);
+  background-color: $bg;
+}
+
+.powermenu {
+  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  font-size: 3rem;
+  background-color: transparent;
+  padding: .5rem;
+  border-radius: 1rem;
+
+  &.shutdown {
+    color: $red;
+  }
+
+  &.reboot {
+    color: $green;
+  }
+
+  &.suspend {
+    color: $yellow;
+  }
+
+  &.exit {
+    color: $blue;
+  }
+
+  button {
+    background-color: $bg-alt;
+    padding: 2rem;
+
+    &:hover {
+      background-color: lighten($color: $bg-alt, $amount: 2%);
+    }
+  }
+}
