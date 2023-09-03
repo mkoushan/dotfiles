@@ -32,11 +32,7 @@ To do
 To do
 
 ## How to use
-My setup for working with dotfiles:
-```bash
-alias DOT='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-DOT config status.showUntrackedFiles no
-```
+In .bash configurations I made DOT alias for managing dotfiles.
 
 ## Screenshots
 To do
