@@ -1,0 +1,10 @@
+[user]
+	email = mkoushan@proton.me
+	name = mkoushan
+	signingkey = CD620FFA84B3AF2E
+[core]
+	editor = vim
+[commit]
+    gpgsign = true
+[advice]
+	addIgnoredFile = false
