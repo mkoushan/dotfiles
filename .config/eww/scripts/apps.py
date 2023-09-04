@@ -17,6 +17,13 @@ CACHE_FILE = os.path.join(XDG_CACHE_HOME, "apps.json")
 DESKTOP_DIR = "/usr/share/applications"
 PREFERRED_APPS = [
     "thunar file manager",
+    "spotube",
+    "keepassxc",
+    "foot",
+    "strawberry",
+    "webcord",
+    "schildichat",
+    "firefox developer edition",
 ]
 
 def get_gtk_icon(icon_name):
