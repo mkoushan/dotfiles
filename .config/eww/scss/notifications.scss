@@ -63,17 +63,9 @@ window > .notifications {
       .icon {
         font-size: 1.1rem;
         color: $fg-alt;
-        &.Spotify {
-          color: $green;
-          font-size: 1.3rem;
-        }
         &.Kotatogram {
           color: $blue-alt;
           font-size: 1.3rem;
-        }
-        &.discord {
-          color: $magenta;
-          font-size: 1.1rem;
         }
       }
       .app {

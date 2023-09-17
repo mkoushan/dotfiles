@@ -56,36 +56,6 @@ window > .bar {
     }
   }
 
-  .music {
-    &.cover {
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      min-height: 2.7rem;
-      min-width: 2.7rem;
-      border-radius: 100%;
-      box-shadow: 0 0 3px 1px rgba(black, 0.5);
-      margin-bottom: 5px;
-    }
-
-    &.toggle {
-      font-size: 1.5rem;
-    }
-
-    &.previous,
-    &.next {
-      font-size: 1.2rem;
-    }
-
-    button {
-      color: $fg;
-
-      &:hover {
-        color: $magenta;
-      }
-    }
-  }
-
   .forecast {
     margin-bottom: 0.2rem;
   }

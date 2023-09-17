@@ -23,14 +23,6 @@
   )
 )
 
-(defwidget center []
-  (box 
-    :halign "center"
-    :valign "center" 
-    :orientation "v"
-  )
-)
-
 (defwidget right []
   (box 
     :space-evenly false 
@@ -56,7 +48,6 @@
     :class "bar"
     :orientation "v"
     (left)
-    (center)
     (right)
   )
 )

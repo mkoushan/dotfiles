@@ -17,7 +17,7 @@
   :monitor 0
   :focusable true
   :stacking "overlay"
-  :geometry (geometry :height "60%" :width "30%" :anchor "center")
+  :geometry (geometry :height "60%" :width "50%" :anchor "center")
   (launcher)
 )
 

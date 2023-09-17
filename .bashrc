@@ -19,3 +19,7 @@ source_dir()
 source_dir ~/.bash/
 source_dir ~/.bash.local/
 eval "$(starship init bash)"
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+export LESS='-R'

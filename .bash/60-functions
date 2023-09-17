@@ -102,17 +102,6 @@ x ()
     done
 }
 
-
-#
-#  Create a screen session with the name of the current host, or attach to
-# it here and now if it already exists.
-#
-screeny ()
-{
-    screen -D -R -S `hostname`
-}
-
-
 #
 # Play media found dynamically.  Correctly copes with spaces in files.
 #

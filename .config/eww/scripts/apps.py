@@ -16,8 +16,8 @@ XDG_CACHE_HOME = os.path.expandvars("$XDG_CACHE_HOME")
 CACHE_FILE = os.path.join(XDG_CACHE_HOME, "apps.json")
 DESKTOP_DIR = "/usr/share/applications"
 PREFERRED_APPS = [
-    "thunar file manager",
-    "spotube",
+    "telegram desktop",
+    "calibre",
     "keepassxc",
     "foot",
     "strawberry",
