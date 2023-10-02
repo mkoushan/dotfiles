@@ -15,7 +15,6 @@ source_dir()
     fi
 }
 
-
 # Process global & local files
-source_dir ~/.bash/
-source_dir ~/.bash.local/
+source_dir ${HOME}/.bash/
+source_dir ${HOME}/.bash.local/

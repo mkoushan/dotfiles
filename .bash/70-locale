@@ -1,8 +1,0 @@
-#
-# My preferred locale
-#
-
-function testlocale
-{
-    perl -Mcharnames=:full -CS -wle 'print "\N{EURO SIGN}"'
-}

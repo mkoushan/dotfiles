@@ -23,7 +23,7 @@ my dotfiles for Arch Linux, based on [juminai dotfiles](https://github.com/jumin
 * [WirePlumber](https://wiki.archlinux.org/title/WirePlumber) - Pipewire session manager
 * [Python](https://wiki.archlinux.org/title/Python) - For some scripts
 * [Git](https://wiki.archlinux.org/title/Git) - Version control system
-
+* Fonts: [FontAwesome](https://fontawesome.com), [FiraCode Nerd](https://www.nerdfonts.com/font-downloads), [Sahel](https://github.com/rastikerdar/sahel-font)
 ## Installation
 ### Easy
 To do

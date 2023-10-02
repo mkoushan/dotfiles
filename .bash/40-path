@@ -41,10 +41,10 @@ add_to_path /var/lib/gems/1.9/bin
 #
 # We allow a per-user, and a per-user + per-host setup.
 #
-add_to_path ~/.local/bin
-add_to_path ~/bin
-add_to_path ~/bin-$(hostname --short)
-add_to_path ~/scripts
+add_to_path $HOME/.local/bin
+add_to_path $HOME/bin
+add_to_path $HOME/bin-$(hostname --short)
+add_to_path $HOME/scripts
 #
 # Now we have some extra setup for things that might be present.
 #
@@ -70,8 +70,8 @@ fi
 #
 # Ruby Gems
 #
-if [ -d ~/gems/bin ]; then
-    export GEM_HOME=~/gems/
+if [ -d $HOME/gems/bin ]; then
+    export GEM_HOME=$HOME/gems/
     add_to_path $HOME/gems/bin
 fi
 

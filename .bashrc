@@ -16,10 +16,11 @@ source_dir()
 }
 
 # Process global & local files
-source_dir ~/.bash/
-source_dir ~/.bash.local/
-eval "$(starship init bash)"
+source_dir ${HOME}/.bash/
+source_dir ${HOME}/.bash.local/
 
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-export LESS='-R'
+MANPAGER="sh -c 'col -bx | bat -l man -p'"
+MANROFFOPT='-c'
+LESS='-R'
+
+eval "$(starship init bash)"
