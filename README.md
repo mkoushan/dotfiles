@@ -21,9 +21,11 @@ my dotfiles for Arch Linux, based on [juminai dotfiles](https://github.com/jumin
 * [Vim](https://wiki.archlinux.org/title/Vim) - Text editor
 * [PipeWire](https://wiki.archlinux.org/title/PipeWire) - Mutlimedia framework
 * [WirePlumber](https://wiki.archlinux.org/title/WirePlumber) - Pipewire session manager
-* [Python](https://wiki.archlinux.org/title/Python) - For some scripts
+* [Python](https://wiki.archlinux.org/title/Python) - For scripts:
+    * [python-gobject](https://archlinux.org/packages/extra/x86_64/python-gobject)
 * [Git](https://wiki.archlinux.org/title/Git) - Version control system
 * Fonts: [FontAwesome](https://fontawesome.com), [FiraCode Nerd](https://www.nerdfonts.com/font-downloads), [Sahel](https://github.com/rastikerdar/sahel-font)
+* [qt5ct](https://archlinux.org/packages/extra/x86_64/qt5ct) & [qt6ct](https://archlinux.org/packages/extra/x86_64/qt6ct)
 ## Installation
 ### Easy
 To do
