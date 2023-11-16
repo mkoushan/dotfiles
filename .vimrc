@@ -14,3 +14,14 @@ set ts=3 sw=3 et
 set tabstop=3
 
 colorscheme jellybeans
+
+"ensure zig is a recognized filetype
+autocmd BufNewFile,BufRead *.zig set filetype=zig
+let g:ycm_language_server =
+    \ [
+    \{
+    \     'name': 'zls',
+    \     'filetypes': [ 'zig' ],
+    \     'cmdline': [ '/path/to/zls_executable' ]
+    \    }
+    \ ]

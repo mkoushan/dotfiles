@@ -1,7 +1,7 @@
 #ls does lsd
 function ls
 {
-    lsd --color=auto --group-dirs first $*
+    lsd --group-dirs first $*
 }
 
 #lsl for lsd -lah
