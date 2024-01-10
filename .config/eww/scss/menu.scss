@@ -5,7 +5,7 @@ window>.menu {
 }
 
 .menu {
-  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  font-family: "FreeSans", "SF Pro", "Font Awesome 6 Pro Solid";
   background-color: transparent;
   padding: .7rem 1rem 1rem;
   border-radius: 1rem;
@@ -37,13 +37,13 @@ window>.menu {
     }
 
     .today {
-      font-size: 1.3rem;
+      font-size: 1.8rem;
       color: $fg-alt;
     }
   }
 
   .calendar {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 500;
     background-color: $bg-alt;
     border-radius: 1rem;
@@ -89,19 +89,19 @@ window>.menu {
       padding: 1rem;
 
       .desc {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         color: $fg-alt;
       }
     }
 
     .temp {
       font-size: 1.5rem;
-      font-weight: bolder;
+      font-weight: bold;
       color: $fg;
     }
 
     .city {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       color: $fg;
     }
 
