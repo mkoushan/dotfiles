@@ -51,9 +51,13 @@
 
 (defwindow powermenu
   :monitor 0
-  :stacking "fg"
-  :geometry (geometry :anchor "right center")
-  (powermenu)
+  :stacking "overlay"
+  :geometry (geometry :width "100%" :height "100%" :anchor "center")
+  (box
+    :halign "center"
+    :valign "center"
+    (powermenu)
+  )
 )
 
 (defwindow dock

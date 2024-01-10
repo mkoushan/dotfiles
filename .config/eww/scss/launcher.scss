@@ -5,7 +5,7 @@ window > .launcher {
 }
 
 .launcher {
-  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  font-family: "FreeSans", "Font Awesome 6 Pro Solid";
   padding: 1.5rem;
   border-radius: 1rem;
 
@@ -14,12 +14,12 @@ window > .launcher {
     padding: 1rem;
     border-radius: 1rem;
     .icon {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: $fg;
     }
 
     .input {
-      font-size: 1rem;
+      font-size: 1.4rem;
       font-weight: 500;
       color: $fg;
     }
@@ -43,12 +43,13 @@ window > .launcher {
       }
 
       .name {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         font-weight: 500;
         color: $fg;
       }
 
       .comment {
+        font-size: 1.2rem;
         color: $fg-alt;
       }
     }
