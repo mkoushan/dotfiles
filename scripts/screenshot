@@ -8,21 +8,21 @@ PIC="$DIR/$DATE.png"
 
 full() {
   grim -l 1 "$PIC"
-  copyq copy image/png - < $PIC
+  wl-copy < $PIC
 }
 
 crop() {
   pgrep slurp || grim -l 1 -g "$(slurp)" "$PIC"
-  copyq copy image/png - < $PIC
+  wl-copy < $PIC
 }
 
 case "$1" in
 --full)
   full
-  notify-send -u low -a Screenshot -i "$PIC" "Copied to clipboard" "$PIC"
+  #notify-send -u low -a Screenshot -i "$PIC" "Copied to clipboard" "$PIC"
   ;;
 --crop)
   crop
-  notify-send -u low -a Screenshot -i "$PIC" "Copied to clipboard" "$PIC"
+  #notify-send -u low -a Screenshot -i "$PIC" "Copied to clipboard" "$PIC"
   ;;
 esac
