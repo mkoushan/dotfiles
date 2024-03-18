@@ -5,10 +5,14 @@
 (defvar     updates_rev     false)
 (defvar     dock_hovered    false)
 (defvar     dock_rev        false)
+(defvar     notification_rev false)
+(defvar info-center_rev  false)
+(defvar popup            "")
 (defvar     apps            "{}")
-(defvar     notifications   "{}")
 (defvar     timezone        "Asia/Tehran")
+(defvar     duration        "250ms")
 
+(deflisten notifications :initial "{}" `scripts/python/notifications.py`)
 (deflisten  brightness      `scripts/bt`)
 (deflisten  volumeval       `scripts/volume loop`)
 (deflisten  hyprland        `scripts/hyprland.py`)
@@ -21,3 +25,41 @@
 (include    "yuck/widgets.yuck")
 (include    "yuck/windows.yuck")
 (include    "yuck/setup.yuck")
+(defvar icons '{
+    "volume": {
+      "true": "",
+      "false": ""
+    },
+    "microphone": {
+      "true": "",
+      "false": ""
+    },
+    "network": {
+      "up": "",
+      "down": ""
+    },
+    "power": {
+      "poweroff": "",
+      "reboot": "",
+      "suspend": "",
+      "exit": ""
+    },
+    "bell": {
+      "true": "",
+      "false": ""
+    },
+    "light": {
+      "true": "",
+      "false": ""
+    },
+    "power-profile": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    },
+    "media": {
+      "true": "",
+      "false": ""
+    }
+  }'
+)

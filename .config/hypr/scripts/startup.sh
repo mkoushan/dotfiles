@@ -1,16 +1,16 @@
 asusctl -c 80
 
-wpctl set-volume @DEFAULT_AUDIO_SINK@ 70%
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 50%
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 
-pkill telegram-desktop
-sudo -EH telegram-desktop -- &
+#pkill telegram-desktop
+#sudo -EH telegram-desktop -- &
 
 #pkill udiskie
 #udiskie -ant &
 
-pkill copyq
-copyq &
+#pkill copyq
+#copyq &
 
 sudo pkill v2raya
 sudo -EH v2raya -- &

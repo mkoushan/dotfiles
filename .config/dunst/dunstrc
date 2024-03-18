@@ -416,7 +416,7 @@
 
 [ignore]
     # This notification will not be displayed
-    summary = "*"
+    summary = ""
     skip_display = true
 
 #[history-ignore]

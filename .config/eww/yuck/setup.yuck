@@ -36,17 +36,12 @@
 
 (defwindow notifications
   :monitor 0
-  :geometry (geometry :x "4%" :width "25%" :anchor "center left")
+  :stacking "fg"
+  :geometry (geometry
+              :y "42px"
+              :height "5px"
+              :anchor "top center")
   (notifications)
-)
-
-(defwindow notifications_popup
-  :monitor 0
-  :stacking "overlay"
-  :namespace "eww_notifications"
-  :focusable false
-  :geometry (geometry :y "0%" :width "0%" :height "0%" :anchor "top center")
-  (notifications_popup)
 )
 
 (defwindow powermenu

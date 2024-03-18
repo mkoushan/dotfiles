@@ -17,12 +17,12 @@ CACHE_FILE = os.path.join(XDG_CACHE_HOME, "apps.json")
 DESKTOP_DIR = "/usr/share/applications"
 PREFERRED_APPS = [
     "telegram desktop",
-    "calibre",
+#    "calibre",
     "keepassxc",
     "foot",
-    "strawberry",
+#    "strawberry",
     "webcord",
-    "schildichat",
+#    "schildichat",
     "firefox developer edition",
 ]
 
