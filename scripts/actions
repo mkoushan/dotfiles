@@ -21,10 +21,8 @@ toggle_launcher() {
 
 toggle_bar() {
   if [[ -z $(eww windows | grep '*bar') ]]; then
-    sed -i '2{s/^#//}' ~/.config/hypr/settings.conf
     eww open bar
   else
-    sed -i '2{s/^/#/}' ~/.config/hypr/settings.conf
     eww close bar
   fi
 }

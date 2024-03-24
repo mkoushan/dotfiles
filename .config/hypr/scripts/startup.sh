@@ -12,7 +12,7 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 sudo pkill v2raya
 sudo -EH v2raya -- &
 
-swaybg -i ~/wp.jpg
+swaybg -i ~/wp.jpg > /dev/null
 
-sleep 0.3 && $XDG_CONFIG_HOME/eww/scripts/init
+sleep 0.5 && $XDG_CONFIG_HOME/eww/scripts/init
 $HOME/.config/hypr/scripts/sleep.sh
