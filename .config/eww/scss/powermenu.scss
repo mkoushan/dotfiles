@@ -5,13 +5,11 @@ window>.powermenu {
 }
 
 .powermenu {
-  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  font-family: "FreeSans";
   font-size: 5rem;
-  //background-color: transparent;
-  background-color: transparentize($bg, 0.5);
+  background-color: transparentize($bg, 0.4);
   padding: .5rem;
   border-radius: 1rem;
-
   &.shutdown {
     color: $red;
   }
@@ -34,6 +32,7 @@ window>.powermenu {
 
     &:hover {
       background-color: lighten($color: $bg-alt, $amount: 2%);
+      padding: 2rem;
     }
   }
 }

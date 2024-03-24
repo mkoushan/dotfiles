@@ -5,7 +5,7 @@ window > .bar {
 }
 
 .bar {
-  font-family: "SF Pro", "Font Awesome 6 Pro Solid";
+  font-family: "FreeSans";
   font-size: 1.4rem;
   padding: 1rem 0.4rem;
   border-radius: 1rem;
@@ -120,7 +120,7 @@ window > .bar {
   }
 
   .clock {
-    font-family: Juminai;
+    font-family: "FreeSans";
 
     &.hour {
       font-weight: bold;
@@ -135,7 +135,7 @@ window > .bar {
       color: $fg-alt;
     }
     .timebox {
-      font-size: 0.5rem;
+      font-size: 1rem;
 
       &.magenta {
         color: $magenta;

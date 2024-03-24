@@ -5,7 +5,7 @@ window>.menu {
 }
 
 .menu {
-  font-family: "FreeSans", "SF Pro", "Font Awesome 6 Pro Solid";
+  font-family: "FreeSans";
   background-color: transparent;
   padding: .7rem 1rem 1rem;
   border-radius: 1rem;
@@ -14,14 +14,14 @@ window>.menu {
     margin-bottom: -.7rem;
 
     .time {
-      font-family: SF Mono;
+      font-family: "FreeSans";
       font-weight: bolder;
       font-size: 3rem;
       color: $fg;
     }
 
     .timebox {
-      font-size: 0.5rem;
+      font-size: 1rem;
 
       &.magenta {
         color: $magenta;

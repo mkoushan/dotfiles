@@ -23,10 +23,10 @@
         :class "timebox" 
         :valign "center" 
         :orientation "v" 
-        :spacing 10
-        (box :class "timebox magenta" "")
-        (box :class "timebox green" "")
-        (box :class "timebox yellow" ""))
+        :spacing 5
+        (box :class "timebox magenta" "●")
+        (box :class "timebox green" "●")
+        (box :class "timebox yellow" "●"))
       (label 
         :class "time" 
         :text {formattime(EWW_TIME, "%M", timezone)}))

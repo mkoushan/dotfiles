@@ -28,7 +28,7 @@
       :halign "center"
       :valign "center"
       (button 
-        :class "powermenu exit" 
+        :class "powermenu suspend" 
         :onclick "systemctl suspend -i" 
         ""
       )
