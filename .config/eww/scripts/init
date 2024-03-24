@@ -1,17 +1,15 @@
 #!/bin/bash
+sleep 0.5
+
 pkill eww
 pkill python
 
 eww daemon
 eww open dock
-eww open notifications_popup
-eww open wallpaper
+#eww open wallpaper
 
 sleep 0.5
 python $XDG_CONFIG_HOME/eww/scripts/apps.py --query &
-#python $XDG_CONFIG_HOME/eww/scripts/notifications.py --init &
-#sleep 0.5
-#python $XDG_CONFIG_HOME/eww/scripts/notifications.py --open &
 sleep 0.9
 eww update dock_rev=true
 sleep 0.9

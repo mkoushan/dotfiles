@@ -2,8 +2,6 @@
 
 [[ -z $(pgrep checkvolume) ]] && checkvolume &
 
-# requieres pamixer
-
 case $1 in
 --up)
   wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 >/dev/null

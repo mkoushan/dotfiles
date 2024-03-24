@@ -13,7 +13,7 @@
       (input
         :class "input"
         :hexpand true
-        :onchange "scripts/apps.py --query {}"
+        :onchange "scripts/apps.py --query \"{}\""
         :onaccept "gtk-launch ${apps.apps[0].desktop} && actions --launcher"
       )
     )

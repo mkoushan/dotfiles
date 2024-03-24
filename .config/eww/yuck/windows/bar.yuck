@@ -5,7 +5,6 @@
     :spacing 15
     :orientation "v"
     :width 40
-    (bell)
     (network)
     (volume)
   )

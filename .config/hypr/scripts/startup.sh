@@ -9,11 +9,10 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 #pkill udiskie
 #udiskie -ant &
 
-#pkill copyq
-#copyq &
-
 sudo pkill v2raya
 sudo -EH v2raya -- &
+
+swaybg -i ~/wp.jpg
 
 sleep 0.3 && $XDG_CONFIG_HOME/eww/scripts/init
 $HOME/.config/hypr/scripts/sleep.sh

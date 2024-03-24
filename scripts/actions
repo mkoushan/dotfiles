@@ -39,28 +39,9 @@ main() {
 
 }
 
-notifications_state() {
-  if [[ $(eww get notifications) == "{}" ]]; then
-    python $XDG_CONFIG_HOME/eww/scripts/notifications.py --open
-  fi
-    eww open --toggle notifications
-}
-
-toggle_notifications() {
-  if [[ $(eww windows | grep '*menu') ]]; then
-    eww close menu
-    notifications_state
-  else
-    notifications_state
-  fi
-}
-
 case $1 in
 --menu)
   toggle_menu
-  ;;
---notifications)
-  toggle_notifications
   ;;
 --launcher)
   toggle_launcher
