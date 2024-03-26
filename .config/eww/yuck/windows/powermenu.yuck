@@ -20,7 +20,7 @@
       (button 
         :class "powermenu reboot" 
         :onclick "systemctl reboot -i" 
-        ""
+        ""
       )
     ) 
     (eventbox
