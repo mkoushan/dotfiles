@@ -19,10 +19,8 @@ crop() {
 case "$1" in
 --full)
   full
-  #notify-send -u low -a Screenshot -i "$PIC" "Copied to clipboard" "$PIC"
   ;;
 --crop)
   crop
-  #notify-send -u low -a Screenshot -i "$PIC" "Copied to clipboard" "$PIC"
   ;;
 esac

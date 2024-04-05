@@ -1,40 +1,21 @@
 #!/bin/bash
 
 toggle_menu() {
-  if [[ $(eww windows | grep -w '*notifications') ]]; then
-    eww close notifications
-    eww open menu
-  else
-    eww open --toggle menu
+  if [[ $(eww active-windows | grep launcher) ]]; then
+    eww close launcher
   fi
+  eww open --toggle menu
 }
 
 toggle_launcher() {
-  if [[ $(eww windows | grep '*launcher') ]]; then
-    eww close launcher
-    python $XDG_CONFIG_HOME/eww/scripts/apps.py --query
-  else
-    eww open launcher
-    python $XDG_CONFIG_HOME/eww/scripts/apps.py --query
+  if [[ $(eww active-windows | grep menu) ]]; then
+    eww close menu
   fi
+  eww open --toggle launcher
 }
 
 toggle_bar() {
-  if [[ -z $(eww windows | grep '*bar') ]]; then
-    eww open bar
-  else
-    eww close bar
-  fi
-}
-
-main() {
-  if [[ -z $(pidof eww) ]]; then
-    eww daemon
-    toggle_bar
-  else
-    toggle_bar
-  fi
-
+  eww open --toggle bar
 }
 
 case $1 in
@@ -45,6 +26,6 @@ case $1 in
   toggle_launcher
   ;;
 --bar)
-  main
+  toggle_bar
   ;;
 esac
