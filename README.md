@@ -6,7 +6,7 @@ my dotfiles for Arch Linux.
 * [Hyprland](https://wiki.archlinux.org/title/Hyprland) - Window manager
 * [Dunst](https://wiki.archlinux.org/title/Dunst) - Notification daemon
 * [Eww](https://elkowar.github.io/eww/) - Widgets
-* [Foot](https://wiki.archlinux.org/title/Foot) - Terminal
+* [QTerminal](https://github.com/lxqt/qterminal) - Terminal
 * [Bash](https://wiki.archlinux.org/title/Bash) - Shell
 * [Starship](https://starship.rs/) - Shell promt
 * [Vim](https://wiki.archlinux.org/title/Vim) - Text editor
