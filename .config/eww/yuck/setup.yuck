@@ -34,16 +34,6 @@
   (menu)
 )
 
-(defwindow notifications
-  :monitor 0
-  :stacking "fg"
-  :geometry (geometry
-              :y "42px"
-              :height "5px"
-              :anchor "top center")
-  (notifications)
-)
-
 (defwindow powermenu
   :monitor 0
   :stacking "overlay"
