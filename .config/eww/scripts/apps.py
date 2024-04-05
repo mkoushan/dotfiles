@@ -18,7 +18,6 @@ DESKTOP_DIR = "/usr/share/applications"
 PREFERRED_APPS = [
     "telegram desktop",
     "keepassxc",
-    "foot",
     "webcord",
     "firefox developer edition",
 ]
