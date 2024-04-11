@@ -1,22 +1,22 @@
 #!/bin/bash
 
-vol="$(eww get volume)"
+vol="$(eww get volumeval)"
 
-if [[ -z $(eww windows | grep '*volume') ]]; then
+if [[ -z $(eww active-windows | grep 'volume') ]]; then
   eww open volume
 fi
 
 while true; do
-  sleep 2.5
+  sleep 0.6
 
-  new_vol=$(eww get volume)
+  new_vol=$(eww get volumeval)
 
   if [ "$vol" != "$new_vol" ]; then
     vol="$new_vol"
   else
-    newest_vol=$(eww get volume)
+    newest_vol=$(eww get volumeval)
     if [ "$vol" == "$newest_vol" ]; then
-      if [[ -n $(eww windows | grep '*volume') ]];then
+      if [[ -n $(eww active-windows | grep 'volume') ]];then
         eww close volume;
         exit
       fi
