@@ -11,7 +11,9 @@ toggle_launcher() {
   if [[ $(eww active-windows | grep menu) ]]; then
     eww close menu
   fi
+
   eww open --toggle launcher
+  ~/.config/eww/scripts/apps.py --query
 }
 
 toggle_bar() {
