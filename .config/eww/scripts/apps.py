@@ -24,7 +24,10 @@ PREFERRED_APPS = [
 
 def get_gtk_icon(icon_name):
     theme = Gtk.IconTheme.get_default()
-    icon_info = theme.lookup_icon(icon_name, 128, 0)
+    if icon_name is not None:
+        icon_info = theme.lookup_icon(icon_name, 128, 0)
+    else:
+        icon_info = None
 
     if icon_info is not None:
         return icon_info.get_filename()
