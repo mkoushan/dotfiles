@@ -6,8 +6,8 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 #pkill telegram-desktop
 #sudo -EH telegram-desktop -- &
 
-#pkill udiskie
-#udiskie -ant &
+pkill udiskie
+udiskie -ant &
 
 sudo pkill v2raya
 sudo -EH v2raya -- &
