@@ -11,6 +11,6 @@ fi
 #
 alias ..='cd ..'
 
-alias yay='https_proxy=socks5://127.0.0.1:20170 http_proxy=socks5://127.0.0.1:20170 yay'
-alias proxy='https_proxy=socks5://127.0.0.1:20170 http_proxy=socks5://127.0.0.1:20170'
+alias yay='proxychains -q yay'
+alias pc='proxychains -q'
 alias ejectusb='udisksctl unmount -b /dev/sda1; udisksctl power-off -b /dev/sda'
