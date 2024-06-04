@@ -11,6 +11,6 @@ fi
 #
 alias ..='cd ..'
 
-alias yay='proxychains -q yay'
+#alias yay='proxychains -q yay'
 alias pc='proxychains -q'
 alias ejectusb='udisksctl unmount -b /dev/sda1; udisksctl power-off -b /dev/sda'

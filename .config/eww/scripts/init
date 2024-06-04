@@ -1,5 +1,4 @@
 #!/bin/bash
-sleep 0.5
 
 pkill eww
 pkill python
@@ -9,7 +8,7 @@ eww open dock
 
 sleep 0.5
 python $XDG_CONFIG_HOME/eww/scripts/apps.py --query &
-sleep 0.9
+sleep 0.4
 eww update dock_rev=true
 sleep 0.9
 eww update dock_rev=false

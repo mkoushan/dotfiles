@@ -10,9 +10,9 @@
       :text {formattime(EWW_TIME, "%H", timezone)}
     )
     (box :class "timebox" :spacing 4
-      (box :class "timebox magenta" "●")
-      (box :class "timebox green" "●")
-      (box :class "timebox yellow" "●")
+      (box :class "timebox magenta" (label :show-truncated false :text "●"))
+      (box :class "timebox green" (label :show-truncated false :text "●"))
+      (box :class "timebox yellow" (label :show-truncated false :text "●"))
     )
     (label 
       :class "clock minute" 

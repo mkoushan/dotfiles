@@ -1,0 +1,22 @@
+#!/bin/bash
+
+while true
+do
+   echo -n '{"workspaces": ['
+   for i in {1..6}
+   do
+      echo -n "{\"id\": $i, \"windows\": $(hyprctl workspaces | grep " ID $i" | wc -l)}"
+      if [ $i -lt 6 ]; then
+         echo -n ","
+      fi
+   done
+   active=$(hyprctl activeworkspace | grep ' ID ' | awk '{print $3}')
+   active_windows=$(hyprctl activeworkspace | grep windows | awk '{print $2}')
+   if [ $active_windows -gt 0 ]; then
+      active_empty="false"
+   else
+      active_empty="true"
+   fi
+   echo "], \"active\": $active, \"active_empty\": $active_empty}"
+   sleep 0.1
+done

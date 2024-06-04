@@ -13,7 +13,7 @@
 
 (deflisten  brightness      `scripts/bt`)
 (deflisten  volumeval       `scripts/volume loop`)
-(deflisten  hyprland        `scripts/hyprland.py`)
+(deflisten  hyprland        `scripts/hyprland`)
 (deflisten  details         `scripts/details`)
 (deflisten  network         `scripts/network`)
 (deflisten  weather         `scripts/weather.py`)
