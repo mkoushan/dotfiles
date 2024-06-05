@@ -1,0 +1,60 @@
+#!/bin/bash
+
+declare -A icon
+
+icon["01d"]=""
+icon["01n"]=""
+icon["02d"]=""
+icon["02n"]=""
+icon["03d"]=""
+icon["03n"]=""
+icon["04d"]=""
+icon["04n"]=""
+icon["09d"]=""
+icon["09n"]=""
+icon["10d"]=""
+icon["10n"]=""
+icon["11d"]=""
+icon["11n"]=""
+icon["13d"]=""
+icon["13n"]=""
+icon["40d"]=""
+icon["40n"]=""
+
+declare -A color
+
+color["01d"]="#c6a679"
+color["01n"]="#9ec3c4"
+color["02d"]="#ceb188"
+color["02n"]="#8aabac"
+color["03d"]="#cacaca"
+color["03n"]="#cacaca"
+color["04d"]="#cacaca"
+color["04n"]="#4c4c4c"
+color["09d"]="#a39ec4"
+color["09n"]="#a39ec4"
+color["10d"]="#9ec3c4"
+color["10n"]="#9ec3c4"
+color["11d"]="#ceb188"
+color["11n"]="#ceb188"
+color["13d"]="#cacaca"
+color["13n"]="#cacaca"
+color["40d"]="#9ec3c4"
+color["40n"]="#9ec3c4"
+
+api_key='56bfec39d45f284396f7e099cf4d150e'
+city_id='132144'
+while true; do
+   response=$(curl -s "http://api.openweathermap.org/data/2.5/weather?APPID=$api_key&id=$city_id&units=metric")
+
+   temp=$(echo $response | jq  -r '.main.temp')
+   temp_min=$(echo $response | jq  -r '.main.temp_min')
+   temp_max=$(echo $response | jq  -r '.main.temp_max')
+   feels_like=$(echo $response | jq  -r '.main.feels_like')
+   humidity=$(echo $response | jq  -r '.main.humidity')
+   description=$(echo $response | jq  -r '.weather[0].main')
+   city=$(echo $response | jq  -r '.name')
+   icon_code=$(echo $response | jq  -r '.weather[0].icon')
+   echo "{\"temp\": $temp, \"temp_min\": $temp_min, \"temp_max\": $temp_max, \"feels_like\": $feels_like, \"humidity\": $humidity, \"description\": \"$description\", \"city\": \"$city\", \"icon\": \"${icon["$icon_code"]}\", \"icon_color\": \"${color["$icon_code"]}\"}"
+sleep 1800
+done
