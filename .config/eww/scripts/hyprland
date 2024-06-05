@@ -1,7 +1,5 @@
 #!/bin/bash
-
-while true
-do
+update () {
    echo -n '{"workspaces": ['
    for i in {1..6}
    do
@@ -18,5 +16,12 @@ do
       active_empty="true"
    fi
    echo "], \"active\": $active, \"active_empty\": $active_empty}"
-   sleep 0.1
-done
+}
+
+handle() {
+   case $1 in
+      workspacev2*) update ;;
+   esac
+}
+
+socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
