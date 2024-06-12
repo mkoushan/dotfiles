@@ -6,8 +6,8 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 pkill udiskie
 udiskie -ant &
 
-sudo pkill v2raya
-sudo -EH v2raya -- &
+pkill sslocal
+sslocal -b "127.0.0.1:1080" -c ~/config.json &
 
 sleep 0.5 && $XDG_CONFIG_HOME/eww/scripts/init
 $HOME/.config/hypr/scripts/sleep.sh
