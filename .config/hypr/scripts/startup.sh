@@ -6,6 +6,18 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 pkill udiskie
 udiskie -ant &
 
+cd ~/.config/mihomo
+mihomo_config="config.yaml"
+if [ -f "$mihomo_config" ]; then
+   file_time=$(stat -c %Y "$mihomo_config")
+   current_time=$(date +%s)
+   threshold=$((current_time - 43200)) # 12 hours in seconds
+
+   if [ $file_time -lt $threshold ]; then
+      ./update
+   fi
+fi
+
 pkill mihomo
 mihomo &
 
