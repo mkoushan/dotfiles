@@ -5,6 +5,7 @@
     :spacing 15
     :orientation "v"
     :width 40
+    (vpn)
     (network)
     (volume)
   )

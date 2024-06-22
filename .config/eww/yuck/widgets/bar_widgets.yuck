@@ -34,6 +34,17 @@
   )
 )
 
+(defwidget vpn []
+  (eventbox
+    :cursor "pointer"
+    (button
+      :class "vpn ${vpn == "on" ? "on" : "off"}"
+      :onclick "actions --vpn"
+      "󰖂"
+    )
+  )
+)
+
 (defwidget network []
   (label
     :class "network ${network == "down" ? "down" : "up"}"

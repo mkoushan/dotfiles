@@ -20,6 +20,20 @@ toggle_bar() {
   eww open --toggle bar
 }
 
+toggle_vpn() {
+  cd ~/.config/mihomo
+  pkill mihomo
+  file="config.yaml"
+  if grep -q "enable: true" $file; then
+    sed -i 's/enable: true/enable: false/' $file
+    eww update vpn=off
+  else
+    sed -i 's/enable: false/enable: true/' $file
+    eww update vpn=on
+  fi
+  mihomo > /dev/null 2>&1 &
+}
+
 case $1 in
 --menu)
   toggle_menu
@@ -29,5 +43,8 @@ case $1 in
   ;;
 --bar)
   toggle_bar
+  ;;
+--vpn)
+  toggle_vpn
   ;;
 esac

@@ -97,6 +97,11 @@ window > .bar {
       &.down {color: $red;}
       &.up {color: $blue;}
     }
+    
+    .vpn {
+      &.on {color: $yellow;}
+      &.off {color: $gray;}
+    }
 
     .volume {
       color: $green;
