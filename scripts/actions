@@ -34,6 +34,15 @@ toggle_vpn() {
   mihomo > /dev/null 2>&1 &
 }
 
+get_vpn_status() {
+  cd ~/.config/mihomo
+  if grep -q "enable: true" config.yaml; then
+    echo "on"
+  else
+    echo "off"
+  fi
+}
+
 case $1 in
 --menu)
   toggle_menu
@@ -46,5 +55,8 @@ case $1 in
   ;;
 --vpn)
   toggle_vpn
+  ;;
+--vpn-status)
+  get_vpn_status
   ;;
 esac

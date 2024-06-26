@@ -6,6 +6,8 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 pkill udiskie
 udiskie -ant &
 
+
+
 cd ~/.config/mihomo
 mihomo_config="config.yaml"
 if [ -f "$mihomo_config" ]; then
@@ -17,7 +19,7 @@ if [ -f "$mihomo_config" ]; then
       ./update
    fi
 fi
-
+sed -i 's/enable: false/enable: true/' $mihomo_config
 pkill mihomo
 mihomo &
 
