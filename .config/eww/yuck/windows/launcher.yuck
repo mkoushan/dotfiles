@@ -9,7 +9,7 @@
       :space-evenly false
       :hexpand true
       :spacing 15
-      (label :text "" :class "icon")
+      (label :text "󰩊" :class "icon")
       (input
         :class "input"
         :hexpand true

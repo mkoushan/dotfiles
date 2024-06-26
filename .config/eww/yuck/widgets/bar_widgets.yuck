@@ -29,7 +29,7 @@
       :class "launcher_icon" 
       :valign "start"
       :onclick "actions --launcher" 
-      ""
+      ""
     )
   )
 )
@@ -38,7 +38,7 @@
   (eventbox
     :cursor "pointer"
     (button
-      :class "vpn ${vpn == "on" ? "on" : "off"}"
+      :class "vpn ${vpn}"
       :onclick "actions --vpn"
       "󰖂"
     )
@@ -47,8 +47,8 @@
 
 (defwidget network []
   (label
-    :class "network ${network == "down" ? "down" : "up"}"
-    :text {network == "down" ? "" : ""}
+    :class "network ${network}"
+    :text {network == "down" ? "󰲛" : "󰱓"}
     :tooltip "${round(EWW_NET.wlo1.NET_DOWN / 1000000, 2)}MB"
   )
 )
@@ -86,9 +86,9 @@
           :class "volume ${volumeval == 0 || volumeval == "muted" ? "muted" : ""}" 
           :tooltip {volumeval == "muted" ? "Muted" : "${volumeval}%" } 
           :onclick "volume --toggle-audio"
-          {volumeval == 0 || volumeval == "muted" ? "" : 
-          volumeval < 30 ? "" : 
-          volumeval < 75 ? "" : ""}
+          {volumeval == 0 || volumeval == "muted" ? "" : 
+          volumeval < 30 ? "" : 
+          volumeval < 75 ? "" : ""}
         )
       )
     )

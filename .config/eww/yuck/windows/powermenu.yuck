@@ -10,7 +10,7 @@
       (button 
         :class "powermenu shutdown" 
         :onclick "systemctl poweroff -i" 
-        ""
+        "󰐦"
       )
     )     
     (eventbox
@@ -30,7 +30,7 @@
       (button 
         :class "powermenu suspend" 
         :onclick "systemctl suspend -i" 
-        ""
+        "󰤄"
       )
     )
     (eventbox
@@ -40,7 +40,7 @@
       (button 
         :class "powermenu exit" 
         :onclick "hyprctl dispatch exit" 
-        ""
+        "󰈆"
       )
     )
   )

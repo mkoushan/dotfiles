@@ -55,7 +55,7 @@
         (box
           :space-evenly false
           :spacing 5
-          (label :text "")
+          (label :text "󱦟")
           (label 
             :class "uptime" 
             :text {details.uptime} 
@@ -71,7 +71,7 @@
         :halign "center"
         :valign "center" 
         :onclick "eww open --toggle powermenu" 
-        ""
+        "󰈆"
       )
     )
 	)
@@ -101,7 +101,7 @@
     :css "cpu"
     :tip "CPU ${round(EWW_CPU.avg,0)}%"
     :data {round(EWW_CPU.avg, 0)} 
-    :icon ""
+    :icon ""
   )
 )
 
@@ -110,7 +110,7 @@
     :css "ram"
     :tip "RAM ${round(EWW_RAM.used_mem / 1048576, 2)}MB"
     :data {round(EWW_RAM.used_mem_perc, 0)}
-    :icon ""
+    :icon ""
   )
 )
 
@@ -119,7 +119,7 @@
     :css "temp"
     :tip "Temperature ${EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]}°C"
     :data {round(EWW_TEMPS.CORETEMP_PACKAGE_ID_0, 0)} 
-    :icon ""
+    :icon ""
   )
 )
 
@@ -128,7 +128,7 @@
     :css "disk"
     :tip "SSD ${round(EWW_DISK["/"].used_perc, 2)}%"
     :data {round(EWW_DISK["/"].used_perc, 0)}
-    :icon ""
+    :icon ""
   )
 )
 

@@ -14,9 +14,9 @@
       )
       (label
         :halign "start"
-        :text {volumeval == 0 ? "" : 
-        volumeval < 30 ? "" : 
-        volumeval < 75 ? "" : ""} 
+        :text {volumeval == 0 ? "" : 
+        volumeval < 30 ? "" : 
+        volumeval < 75 ? "" : ""}
         :style {volumeval == "muted" || volumeval == 0 ? "color: #dd6777;" : 
         volumeval < 15 ? "color: #cacaca;" : "color: #191919;"}
       )
