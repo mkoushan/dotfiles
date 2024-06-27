@@ -10,7 +10,7 @@
 (defvar     apps            "{}")
 (defvar     timezone        "Asia/Tehran")
 (defvar     duration        "250ms")
-(defvar     vpn             "on")
+(defvar     vpn             "off")
 
 (deflisten  brightness      `scripts/bt`)
 (deflisten  volumeval       `scripts/volume loop`)

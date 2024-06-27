@@ -31,7 +31,7 @@ toggle_vpn() {
     sed -i 's/enable: false/enable: true/' $file
     eww update vpn=on
   fi
-  mihomo > /dev/null 2>&1 &
+  startmihomo &
 }
 
 get_vpn_status() {
