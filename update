@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/Pictures/dot/ add *.png
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/Pictures/dot/ commit -a -S -m "Updating screenshots"
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/Pictures/dot/ push origin screenshots
