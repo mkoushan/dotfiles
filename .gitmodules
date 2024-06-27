@@ -1,18 +1,6 @@
-[submodule ".vim/pack/plugins/start/YouCompleteMe"]
-	path = .vim/pack/plugins/start/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe.git
-[submodule ".vim/pack/plugins/start/vim-autoformat"]
-	path = .vim/pack/plugins/start/vim-autoformat
-	url = https://github.com/chiel92/vim-autoformat
-[submodule ".vim/pack/plugins/start/vim-fugitive"]
-	path = .vim/pack/plugins/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
 [submodule ".vim/pack/plugins/start/vim-indent-guides"]
 	path = .vim/pack/plugins/start/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
-[submodule ".vim/pack/plugins/start/vim-instant-markdown"]
-	path = .vim/pack/plugins/start/vim-instant-markdown
-	url = https://github.com/suan/vim-instant-markdown
 [submodule ".vim/pack/plugins/start/vim-polyglot"]
 	path = .vim/pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
