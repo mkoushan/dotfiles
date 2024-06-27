@@ -1,0 +1,56 @@
+#!/bin/bash
+
+template() {
+  cp ~/cp/template.cpp ./"$1"
+}
+
+run() {
+  g++ "$1" && ./a.out < t 
+}
+
+fast_run() {
+  ./a.out < t
+}
+
+paste_testcase() {
+  wl-paste > t
+}
+
+create_contest() {
+  mkdir "$1" && cd "$1"
+  template "A.cpp"
+  template "B.cpp"
+  template "C.cpp"
+  template "D.cpp"
+  template "E.cpp"
+  template "F.cpp"
+  template "G.cpp"
+  template "H.cpp"
+  template "I.cpp"
+  template "J.cpp"
+}
+
+question() {
+  template "$1.cpp"
+}
+
+case $1 in
+t)
+  template $2
+  ;;
+r)
+  run $2
+  ;;
+fr)
+  fast_run
+  ;;
+pt)
+  paste_testcase
+  ;;
+cc)
+  create_contest $2
+  ;;
+q)
+  question $2
+  ;;
+esac
