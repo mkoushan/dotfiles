@@ -64,7 +64,7 @@ sudo setcap 'cap_net_admin,cap_net_bind_service=+ep' /usr/bin/mihomo
 
 ```
 
-## Installing Configs
+### Installing Configs
 
 ```bash
 git clone --bare --depth=1 git@github.com:mkoushan/dotfiles.git $HOME/.dotfiles
@@ -74,7 +74,13 @@ DOT config --local status.showUntrackedFiles no
 DOT submodule update --init --recursive --depth=1
 ```
 
-## Screnshots
+### Installing root configs
+
+```bash
+sudo cp -r $HOME/etc /etc
+```
+
+## Screenshots
 
 ![sample #1](https://github.com/mkoushan/dotfiles/blob/screenshots/1.png?raw=true)
 ![sample #2](https://github.com/mkoushan/dotfiles/blob/screenshots/2.png?raw=true)
