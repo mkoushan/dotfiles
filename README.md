@@ -27,14 +27,14 @@ my dotfiles for Arch Linux.
 * wl-clipboard - Wayland clipboard manager
 * brightnessctl
 
-### Bash scripts requirements
+### Bash Scripts Requirements
 * jq - JSON management
 * bash-compilition
 * gnu-netcat
 
 ## Installation
 
-### Pacman stuff:
+### Pacman Stuff:
 
 ```bash
 # Make sure you installed the Network Manager before you proceed or any other network management app
@@ -46,7 +46,7 @@ sudo pacman -S --needed base-devel git dunst qterminal pipewire pipewire-alsa st
 # This command will log out you from current logged in session
 sudo systemctl enable --now greetd.service
 ```
-### AUR stuff:
+### AUR Stuff:
 
 #### Install yay (Optional)
 
@@ -74,7 +74,7 @@ DOT config --local status.showUntrackedFiles no
 DOT submodule update --init --recursive --depth=1
 ```
 
-### Installing root configs
+### Installing Root Configs
 
 ```bash
 sudo cp -r $HOME/etc /etc
