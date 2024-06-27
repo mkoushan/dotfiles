@@ -37,9 +37,11 @@ my dotfiles for Arch Linux.
 ### Pacman stuff:
 
 ```bash
-sudo pacman -Syu
-sudo pacman -S --needed base-devel git dunst qterminal pipewire pipewire-alsa starship gnu-free-fonts firefox-developer-edition hyprland hypridle hyprpaper syncthing keepassxc jq bash-compilition gnu-netcat vim vifm wl-clipboard grim slurp arc-gtk-theme papirus-icon-theme sshpass ttf-firacode-nerd ttf-nerd-fonts-symbols udiskie unrar unzip vimiv brightnessctl wireplumber qt5-wayland qt6-wayland ntfs-3g libreoffice-fresh networkmanager
+# Make sure you installed the Network Manager before you proceed or any other network management app
 sudo systemctl enable --now NetworkManager.service
+
+sudo pacman -Syu
+sudo pacman -S --needed base-devel git dunst qterminal pipewire pipewire-alsa starship gnu-free-fonts firefox-developer-edition hyprland hypridle hyprpaper syncthing keepassxc jq bash-compilition gnu-netcat vim vifm wl-clipboard grim slurp arc-gtk-theme papirus-icon-theme sshpass ttf-firacode-nerd ttf-nerd-fonts-symbols udiskie unrar unzip vimiv brightnessctl wireplumber qt5-wayland qt6-wayland ntfs-3g libreoffice-fresh 
 
 # This command will log out you from current logged in session
 sudo systemctl enable --now greetd.service
