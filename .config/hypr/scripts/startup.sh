@@ -6,9 +6,7 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 pkill udiskie
 udiskie -ant &
 
-
-
-cd ~/.config/mihomo
+cd $HOME/.config/mihomo
 mihomo_config="config.yaml"
 if [ -f "$mihomo_config" ]; then
    file_time=$(stat -c %Y "$mihomo_config")
@@ -25,3 +23,4 @@ mihomo &
 
 sleep 0.5 && $XDG_CONFIG_HOME/eww/scripts/init
 $HOME/.config/hypr/scripts/sleep.sh
+$HOME/.config/gtk-3.0/import-gsettings
