@@ -56,6 +56,10 @@ git clone --depth=1 https://aur.archlinux.org/yay-bin.git && cd yay-bin && makep
 ```bash
 # Replace yay with your AUR helper, or install the packages manually
 yay -S eww mihomo-bin sahel-fonts
+
+# Required for TUN mode to work
+sudo setcap 'cap_net_admin,cap_net_bind_service=+ep' /usr/bin/mihomo 
+
 ```
 ## License
 [CC-BY-SA-4.0](https://spdx.org/licenses/CC-BY-SA-4.0.html)
