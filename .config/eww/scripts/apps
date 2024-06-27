@@ -1,0 +1,95 @@
+#!/bin/bash
+
+XDG_CACHE_HOME="$XDG_CACHE_HOME"
+CACHE_FILE="$XDG_CACHE_HOME/apps.json"
+DESKTOP_DIR="/usr/share/applications"
+PREFERRED_APPS=(
+    "telegram desktop"
+    "keepassxc"
+    "webcord"
+    "firefox developer edition"
+)
+
+get_icon() {
+    local icon_name="$1"
+    local theme=$(gsettings get org.gnome.desktop.interface icon-theme)
+    theme=${theme:1:-1}
+    local icon_path=$(find -L /usr/share/icons/$theme/128x128/apps /usr/share/icons/hicolor/128x128/apps -type f \( -name "*$icon_name*.svg" -o -name "*$icon_name*.png" \) | head -1)
+    echo "$icon_path"
+}
+
+get_desktop_entries() {
+    local -n entries=$1
+    local bool=0
+    for file_path in "$DESKTOP_DIR"/*.desktop; do
+        if grep -q "NoDisplay=true" "$file_path"; then
+            continue  # Skip entries with NoDisplay=true
+        elif grep -qi "avahi" "$file_path"; then
+            continue  # Skip Avahi apps
+        fi
+        app_name=$(awk -F'=' '$1=="Name"{print $2}' "$file_path" | head -1)
+        icon_path=$(get_icon "$(awk -F'=' '$1=="Icon"{print $2}' "$file_path" | head -1)")
+        comment=$(awk -F'=' '$1=="Comment"{print $2}' "$file_path" | head -1)
+
+        entry="{\"name\": \"$app_name\", \"icon\": \"$icon_path\", \"comment\": \"$comment\", \"desktop\": \"$(basename "$file_path")\"}"
+        if [ $bool -ne 0 ]; then
+            entry=",$entry"
+        fi
+        entries+=("$entry")
+        bool=1
+    done
+}
+
+get_cached_entries() {
+    if [ ! -f "$CACHE_FILE" ]; then
+        local all_apps
+        get_desktop_entries all_apps
+        local preferred_apps=()
+        local bool=0
+        for entry in "${all_apps[@]}"; do
+            local mana="$entry"
+            if [ "${mana:0:1}" = "," ]; then
+                mana="${mana:1}"
+            fi
+            app_name=$(echo "$mana" | jq -r '.name' | tr '[:upper:]' '[:lower:]')
+            if [[ " ${PREFERRED_APPS[@]} " =~ " $app_name " ]]; then
+                if [ $bool -eq 0 ]; then
+                    preferred_apps+=("${entry#,}")
+                    bool=1
+                else
+                    preferred_apps+=("$entry")
+                fi
+            fi
+        done
+        if [ ${#preferred_apps[@]} -eq 0 ]; then
+            preferred_apps+="{}"
+        fi
+        echo -n "{\"apps\": [${all_apps[@]}], \"preferred\": [${preferred_apps[@]}]}" > "$CACHE_FILE"
+    fi
+}
+
+filter_entries() {
+    local query="$1"
+    local -n filtered_data=$2
+    filtered_data=$(jq --arg query "$query" '.apps |= map(select((.name | test($query; "i")) or (.comment | test($query; "i")))) | .apps' < "$CACHE_FILE" )
+}
+
+# Main
+
+get_cached_entries
+
+if [ "$1" == "--query" ] && [ -n "$2" ]; then
+    query="$2"
+else
+    query=""
+fi
+
+
+if [ -n "$query" ]; then
+    filtered=""
+    filter_entries "$query" filtered
+    eww update "apps={\"apps\": $filtered, \"preferred\": $(jq -c '.preferred' < "$CACHE_FILE")}"
+else
+    eww update "apps=$(cat "$CACHE_FILE")"
+fi
+
