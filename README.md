@@ -74,5 +74,11 @@ DOT config --local status.showUntrackedFiles no
 DOT submodule update --init --recursive --depth=1
 ```
 
+## Screnshots
+
+![sample #1](https://github.com/mkoushan/dotfiles/blob/screenshots/1.png?raw=true)
+![sample #2](https://github.com/mkoushan/dotfiles/blob/screenshots/2.png?raw=true)
+![sample #3](https://github.com/mkoushan/dotfiles/blob/screenshots/3.png?raw=true)
+
 ## License
 [CC-BY-SA-4.0](https://spdx.org/licenses/CC-BY-SA-4.0.html)
