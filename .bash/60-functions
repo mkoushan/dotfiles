@@ -102,25 +102,12 @@ x ()
     done
 }
 
-#
-# Play media found dynamically.  Correctly copes with spaces in files.
-#
-function play
-{
-   player=$*
-   if [  -z "$player" ]; then
-      player="xine --loop=shuffle+"
-   fi
-
-   find . \( -iname '*.avi' -o -iname '*.mkv' -o -iname '*.m4v' -o -iname '*.wmv' -o -iname '*.flv' -o -iname '*.mp4' -o -iname '*.mov' -o -iname '*.mpg' \) -exec $player "{}" +
-
-}
 
 # Open a new firefox instance, with a temporary profile
 function firefox_temp() {
    dir=$(mktemp -d)
    echo "Profile directory: ${dir}"
-   firefox --new-instance --profile ${dir}
+   firefox-developer-edition --new-instance --profile ${dir}
    echo "Cleaning up .."
    rm -rf ${dir}
 
@@ -159,3 +146,18 @@ function passphrase() {
     done
 
 }
+
+function sudo() {
+    # Run the actual pacman command
+    /usr/bin/sudo "$@"
+    local pm="$1"
+    local command="$2"
+    if [ "$pm" = "pacman" ]; then
+        if [ "$command" = "-Syu" ] || [ "$command" = "-S" ] || [ "$command" = "--sync" ] || [ "$command" = "-Rs" ] || [ "$command" = "-R" ] || [ "$command" = "--remove" ]; then
+            rm $HOME/.cache/apps.json
+            echo '(4/3) Updating apps.json cache...'
+            $HOME/.config/eww/scripts/apps
+        fi
+    fi
+}
+
