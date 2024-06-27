@@ -63,5 +63,16 @@ yay -S eww mihomo-bin sahel-fonts
 sudo setcap 'cap_net_admin,cap_net_bind_service=+ep' /usr/bin/mihomo 
 
 ```
+
+## Installing Configs
+
+```bash
+git clone --bare --depth=1 git@github.com:mkoushan/dotfiles.git $HOME/.dotfiles
+alias DOT='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+DOT checkout -f # This command will overwrite everything
+DOT config --local status.showUntrackedFiles no
+DOT submodule update --init --recursive --depth=1
+```
+
 ## License
 [CC-BY-SA-4.0](https://spdx.org/licenses/CC-BY-SA-4.0.html)
