@@ -23,7 +23,7 @@
         :class "timebox" 
         :valign "center" 
         :orientation "v" 
-        :spacing 5
+        :spacing 0
         (box :class "timebox magenta" "●")
         (box :class "timebox green" "●")
         (box :class "timebox yellow" "●"))
@@ -179,7 +179,7 @@
         :halign "end" 
         :valign "center" 
         :text {weather.icon} 
-        :style "color: ${weather.icon_color}"
+        :style "font-size: 400%; color: ${weather.icon_color}"
       )
     )
   )
