@@ -5,6 +5,7 @@ wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
 
 pkill udiskie
 udiskie -ant &
+$HOME/.config/gtk-3.0/import-gsettings
 
 cd $HOME/.config/mihomo
 mihomo_config="config.yaml"
@@ -22,5 +23,5 @@ pkill mihomo
 mihomo &
 
 sleep 0.5 && $XDG_CONFIG_HOME/eww/scripts/init
+$HOME/.config/eww/scripts/apps
 $HOME/.config/hypr/scripts/sleep.sh
-$HOME/.config/gtk-3.0/import-gsettings
